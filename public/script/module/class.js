@@ -1,21 +1,21 @@
 export class Pokemon {
-    constructor(nom, pv, type = []){
-        this.nom = nom;
-        this.pv = pv;
+    constructor(name, hp, type = []){
+        this.name = name;
+        this.hp = hp;
         this.type = type;
     }
 }
 
 export class PlayerPokemon extends Pokemon {
-    constructor(nom, pv, type = [], atk = {}){
-        super(nom, pv, type);
+    constructor(name, hp, type = [], atk = {}){
+        super(name, hp, type);
         this.atk = atk;
     }
 }
 
 export class EnemyPokemon extends Pokemon {
-    constructor(nom, pv, type = [], pa){
-        super(nom, pv, type);
+    constructor(name, hp, type = [], pa){
+        super(name, hp, type);
         this.pa = pa;
     } 
 }

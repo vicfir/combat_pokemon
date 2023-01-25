@@ -39,7 +39,12 @@ main {
     right: 10%;
     border-radius: 10px;
     border: solid 2px darkgray;
-    
+    padding: 5px;
+    p {
+        font-family: pixel;
+        color: lightgray;
+        margin: 0;
+    }
 }
 
 #adversairePokemon {
@@ -57,6 +62,12 @@ main {
     left: 10%;
     border-radius: 10px;
     border: solid 2px darkgray;
+    padding: 5px;
+    p {
+        font-family: pixel;
+        color: lightgray;
+        margin: 0;
+    }
 }
 
 //SECTION TEXT
@@ -98,5 +109,6 @@ main {
     button {
         border-radius: 10px;
         border: solid 2px darkgray;
+        font-family: pixel;
     }
 }
