@@ -23,14 +23,30 @@ body {
   justify-content: center;
   align-items: baseline;
 }
-#selectPokemon a {
-  font-family: pixel;
-  text-align: center;
-  text-decoration: none;
-  color: black;
+#selectPokemon .contSect {
   display: flex;
   flex-direction: column;
+  align-items: center;
   margin: 50px;
+}
+#selectPokemon a {
+  text-decoration: none;
+  display: flex;
+  flex-direction: column;
+  margin: 0;
+}
+#selectPokemon button {
+  margin: 0;
+  background: none;
+  color: inherit;
+  border: none;
+  padding: 0;
+  font-family: pixel;
+  color: black;
+  cursor: pointer;
+}
+#selectPokemon button:hover {
+  color: red;
 }
 
 /*# sourceMappingURL=main.css.map */

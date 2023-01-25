@@ -1,13 +1,15 @@
 // import * as select from "./module/select.js";
 // import * as combat from "./module/combat.js";
-let selectPokemon = document.querySelectorAll("#select > a > button");
+let selectPokemon = document.querySelectorAll("#select > div > a > button");
 let selectPokemonImg = document.querySelector("#joueurPokemonImg");
 
 
 for (let i = 0; i < selectPokemon.length; i++) {
     selectPokemon[i].addEventListener("click", (e)=>{
-        console.log(e.target.value);
+        console.log(e.target);
         window.localStorage.setItem('src', e.target.value);
+
+    
         // switch (selectPokemon[i].textContent) {
         //     case "Blastoise":
         //         // selectedPokemon = "../img/blastoiseBack.gif";
