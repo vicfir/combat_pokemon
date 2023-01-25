@@ -1,0 +1,43 @@
+body {
+    margin: 0;
+    background-color: lightgray;
+    width: 100%;
+}
+
+main {
+    height: 100vh;
+}
+
+//SECTION VISUEL
+#bg {
+    background-color: darkgray;
+    padding: 5px;
+
+    img {
+        width: 100%;       
+    }
+}
+
+#joueur {
+    img {
+        position: absolute;
+        top: 280px;
+        left: 450px;
+    }
+}
+
+#adversaire {
+    img {
+        position: absolute;
+        top: 150px;
+        right: 500px;
+    }
+}
+
+//SECTION TEXT
+#combat {
+    height: 160px;
+    width: 100vw;
+    position: absolute;
+    bottom: 0;
+}
