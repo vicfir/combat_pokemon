@@ -1,88 +1,36 @@
+@font-face {
+  font-family: "pixel";
+  src: url("../../public/fonts/Pixeled.ttf");
+}
 body {
-  margin: 0;
-  background-color: black;
+  background-color: #FFCB05;
+}
+
+#logo {
+  width: 50%;
+  margin: auto;
+}
+#logo img {
   width: 100%;
 }
 
-main {
-  height: 100vh;
+#selectPokemon h1 {
+  font-family: pixel;
+  text-align: center;
 }
-
-#bg {
-  background-color: darkgray;
-  padding: 3px;
-}
-#bg img {
-  width: 100%;
-}
-
-#joueurPokemon img {
-  position: absolute;
-  top: 280px;
-  left: 450px;
-}
-
-#joueurPv {
-  width: 300px;
-  height: 100px;
-  background-color: black;
-  position: absolute;
-  top: 280px;
-  right: 100px;
-  border-radius: 10px;
-  border: solid 2px darkgray;
-}
-
-#adversairePokemon img {
-  position: absolute;
-  top: 150px;
-  right: 500px;
-}
-
-#adversairePv {
-  width: 300px;
-  height: 100px;
-  background-color: black;
-  position: absolute;
-  top: 60px;
-  left: 100px;
-  border-radius: 10px;
-  border: solid 2px darkgray;
-}
-
-#combat {
-  height: 160px;
-  width: 100%;
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  grid-template-rows: 1fr;
-  grid-column-gap: 0px;
-  grid-row-gap: 0px;
-}
-
-#continue {
+#selectPokemon #select {
   display: flex;
-  align-items: center;
-  padding-left: 10px;
+  justify-content: center;
+  align-items: baseline;
 }
-#continue button {
-  width: 150px;
-  height: 50px;
-  border-radius: 10px;
-  border: solid 2px darkgray;
-}
-
-#attaque {
-  padding: 10px 10px 0 0;
-  display: grid;
-  grid-template-columns: repeat(2, 1fr);
-  grid-template-rows: repeat(2, 1fr);
-  grid-column-gap: 10px;
-  grid-row-gap: 10px;
-}
-#attaque button {
-  border-radius: 10px;
-  border: solid 2px darkgray;
+#selectPokemon a {
+  font-family: pixel;
+  text-align: center;
+  text-decoration: none;
+  color: black;
+  display: flex;
+  flex-direction: column;
+  margin: 50px;
 }
 
 /*# sourceMappingURL=main.css.map */
