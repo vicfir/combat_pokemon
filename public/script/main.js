@@ -69,10 +69,17 @@ let atkBtn = document.querySelectorAll("#attaque > button");
 let infoSquare = document.querySelectorAll("#joueurPv > p");
 
 let enemyPokemonImgMove = document.querySelector("#adversairePokemon");
+let playerPokemonImgMove = document.querySelector("#joueurPokemon");
+
+let atkFlash = document.querySelector("#atkFlash");
     
 
 for (let i = 0; i < atkBtn.length; i++) {
     atkBtn[i].addEventListener("click", ()=>{
+        playerPokemonImgMove.classList.remove('animationPlayer'); // reset animation
+        void playerPokemonImgMove.offsetWidth; // trigger reflow
+        playerPokemonImgMove.className="animationPlayer";// start animation
+
         enemyPokemon.hp -= Object.values(playerPokemon.atk)[i];
         infoEnemySquare[1].textContent = `${enemyPokemon.hp}HP`;
         //enemy pokemon atk if alive
@@ -81,6 +88,12 @@ for (let i = 0; i < atkBtn.length; i++) {
                 enemyPokemonImgMove.classList.remove('animationEnemy'); // reset animation
                 void enemyPokemonImgMove.offsetWidth; // trigger reflow
                 enemyPokemonImgMove.className="animationEnemy";// start animation
+
+                atkFlash.classList.remove("atkFlash");
+                void atkFlash.offsetWidth;
+                setTimeout(() => {
+                    atkFlash.className="atkFlash"
+                }, 500);
                 
                 playerPokemon.hp -= enemyPokemon.pa;
                 infoSquare[1].textContent = `${playerPokemon.hp}HP`;
