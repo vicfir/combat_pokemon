@@ -80,7 +80,8 @@ let playerHpMax = playerPokemon.hp;
 for (let i = 0; i < atkBtn.length; i++) {
     atkBtn[i].addEventListener("click", ()=>{
 
-        if (playerPokemon.hp > 0) {
+        //player pokemon atk
+        if (playerPokemon.hp > 0 && enemyPokemon.hp > 0) {
             //atk animation
             playerPokemonImgMove.classList.remove('animationPlayer'); // reset animation
             void playerPokemonImgMove.offsetWidth; // trigger reflow
@@ -110,8 +111,13 @@ for (let i = 0; i < atkBtn.length; i++) {
             
         }
 
-        //enemy pokemon atk if alive
-        if (enemyPokemon.hp > 0) {
+        //YOU WIN
+        if (enemyPokemon.hp <= 0) {
+            alert("Vous avez gagne");
+        }
+
+        //enemy pokemon atk 
+        if (enemyPokemon.hp > 0 && playerPokemon.hp > 0) {
             setTimeout(() => {
 
                 //atk animation
@@ -139,7 +145,15 @@ for (let i = 0; i < atkBtn.length; i++) {
                 } else if (playerHpBar.style.width.slice(0, -1) < 50) {
                     playerHpBar.className="progress-bar bg-warning"
                 }
+
+                //GAME OVER
+                if (playerPokemon.hp <= 0) {
+                    alert("Vous avez perdu");
+                }
             }, 1500);
+
         }
+
+        
     })
 }
