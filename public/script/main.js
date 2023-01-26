@@ -5,6 +5,8 @@ import * as funct from "./module/function.js";
 let selectPokemon = document.querySelectorAll("#select > div > a > button");
 let selectPokemonImg = document.querySelector("#joueurPokemonImg");
 
+let playerPokemon;
+
 //event listner on all pokemon
 for (let i = 0; i < selectPokemon.length; i++) {
     selectPokemon[i].addEventListener("click", (e)=>{
@@ -19,19 +21,21 @@ selectPokemonImg.src=window.localStorage.getItem('src');
 //display info player pokemon
 if (selectPokemonImg.src.includes("blastoise")) {
     funct.playerPokemonInfo(pokemon.blastoise);
+    playerPokemon = pokemon.blastoise;
 
 } else if (selectPokemonImg.src.includes("charizard")) {
     funct.playerPokemonInfo(pokemon.charizard);
+    playerPokemon = pokemon.charizard;
 
 } else if (selectPokemonImg.src.includes("venusaur")) {
     funct.playerPokemonInfo(pokemon.venusaur);
+    playerPokemon = pokemon.venusaur;
 
 } else {
     console.log("error pokemon image source");
 }
 
 //SELECT ENEMY POKEMON----------------------------------------------------------------
-
 let enemyPokemonArray = [pokemon.articuno, pokemon.zapdos, pokemon.moltres];
 //random enemy
 let enemyPokemon = funct.randArr(enemyPokemonArray);
@@ -55,3 +59,41 @@ switch (enemyPokemon.name) {
         console.log("error enemy select pokemon");
         break;
 }
+
+//COMBAT LOOP--------------------------------------------------------------------------
+console.log(enemyPokemon, playerPokemon);
+console.log(Object.values(playerPokemon.atk)[0]);
+
+let atkBtn = document.querySelectorAll("#attaque > button");
+
+let infoSquare = document.querySelectorAll("#joueurPv > p");
+
+let enemyPokemonImgMove = document.querySelector("#adversairePokemon");
+    
+
+for (let i = 0; i < atkBtn.length; i++) {
+    atkBtn[i].addEventListener("click", ()=>{
+        enemyPokemon.hp -= Object.values(playerPokemon.atk)[i];
+        infoEnemySquare[1].textContent = `${enemyPokemon.hp}HP`;
+        //enemy pokemon atk if alive
+        if (enemyPokemon.hp > 0) {
+            setTimeout(() => {
+                enemyPokemonImgMove.classList.remove('animationEnemy'); // reset animation
+                void enemyPokemonImgMove.offsetWidth; // trigger reflow
+                enemyPokemonImgMove.className="animationEnemy";// start animation
+                
+                playerPokemon.hp -= enemyPokemon.pa;
+                infoSquare[1].textContent = `${playerPokemon.hp}HP`;
+            }, 1500);
+        }
+        console.log(enemyPokemon.hp);
+    })
+}
+
+// do {
+
+//     if ( playerPokemon.hp > 0) {
+        
+//     }
+
+// } while (enemyPokemon.hp > 0 || playerPokemon.hp > 0);

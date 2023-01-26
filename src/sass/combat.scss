@@ -10,7 +10,7 @@ main {
     height: 100vh;
 }
 
-//SECTION VISUEL
+//SECTION VISUEL-----------------------------------------------------
 #bg {
     background-color: darkgray;
     padding: 3px;
@@ -40,6 +40,9 @@ main {
     border-radius: 10px;
     border: solid 2px darkgray;
     padding: 5px;
+
+    display: flex;
+
     p {
         font-family: pixel;
         color: lightgray;
@@ -63,6 +66,9 @@ main {
     border-radius: 10px;
     border: solid 2px darkgray;
     padding: 5px;
+
+    display: flex;
+
     p {
         font-family: pixel;
         color: lightgray;
@@ -70,7 +76,34 @@ main {
     }
 }
 
-//SECTION TEXT
+//animation enemy atk
+.animationEnemy {
+    animation-name: atkEnemy;
+    animation-duration: 0.5s;
+    animation-iteration-count: 1;
+    animation-timing-function: ease;
+    animation-fill-mode: forwards;
+}
+
+@keyframes atkEnemy {
+    0% {
+        right: 38%;
+    }
+    25% {
+        right: 40%;
+    }
+    50% {
+        right: 36%;
+    }
+    75% {
+        right: 40%;
+    }
+    100% {
+        right: 38%;
+    }
+}
+
+//SECTION TEXT----------------------------------------------------------
 #combat {
     height: 160px;
     width: 100%;

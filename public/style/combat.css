@@ -40,6 +40,7 @@ main {
   border-radius: 10px;
   border: solid 2px darkgray;
   padding: 5px;
+  display: flex;
 }
 #joueurPv p {
   font-family: pixel;
@@ -63,6 +64,7 @@ main {
   border-radius: 10px;
   border: solid 2px darkgray;
   padding: 5px;
+  display: flex;
 }
 #adversairePv p {
   font-family: pixel;
@@ -70,6 +72,31 @@ main {
   margin: 0;
 }
 
+.animationEnemy {
+  animation-name: atkEnemy;
+  animation-duration: 0.5s;
+  animation-iteration-count: 1;
+  animation-timing-function: ease;
+  animation-fill-mode: forwards;
+}
+
+@keyframes atkEnemy {
+  0% {
+    right: 38%;
+  }
+  25% {
+    right: 40%;
+  }
+  50% {
+    right: 36%;
+  }
+  75% {
+    right: 40%;
+  }
+  100% {
+    right: 38%;
+  }
+}
 #combat {
   height: 160px;
   width: 100%;
