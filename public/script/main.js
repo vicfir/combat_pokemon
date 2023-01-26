@@ -60,7 +60,7 @@ switch (enemyPokemon.name) {
         break;
 }
 
-//COMBAT LOOP--------------------------------------------------------------------------
+//COMBAT "LOOP"--------------------------------------------------------------------------
 console.log(enemyPokemon, playerPokemon);
 console.log(Object.values(playerPokemon.atk)[0]);
 
@@ -72,41 +72,74 @@ let enemyPokemonImgMove = document.querySelector("#adversairePokemon");
 let playerPokemonImgMove = document.querySelector("#joueurPokemon");
 
 let atkFlash = document.querySelector("#atkFlash");
-    
+
+
+let enemyHpMax = enemyPokemon.hp;
+let playerHpMax = playerPokemon.hp;
 
 for (let i = 0; i < atkBtn.length; i++) {
     atkBtn[i].addEventListener("click", ()=>{
-        playerPokemonImgMove.classList.remove('animationPlayer'); // reset animation
-        void playerPokemonImgMove.offsetWidth; // trigger reflow
-        playerPokemonImgMove.className="animationPlayer";// start animation
 
-        enemyPokemon.hp -= Object.values(playerPokemon.atk)[i];
-        infoEnemySquare[1].textContent = `${enemyPokemon.hp}HP`;
+        if (playerPokemon.hp > 0) {
+            //atk animation
+            playerPokemonImgMove.classList.remove('animationPlayer'); // reset animation
+            void playerPokemonImgMove.offsetWidth; // trigger reflow
+            playerPokemonImgMove.className="animationPlayer"; // start animation
+            
+            //hp change
+            enemyPokemon.hp -= Object.values(playerPokemon.atk)[i];
+            infoEnemySquare[1].textContent = `${enemyPokemon.hp}HP`;
+            
+            //bar hp change
+            let enemyHpBar = document.querySelector("#adversairePvBar");
+            enemyHpBar.style=`width: ${(Math.round(enemyPokemon.hp/(enemyHpMax/100)))}%`;
+
+            //color
+            if(enemyHpBar.style.width.slice(0, -1) < 25) {
+                enemyHpBar.className="progress-bar bg-danger"
+            } else if (enemyHpBar.style.width.slice(0, -1) < 50) {
+                enemyHpBar.className="progress-bar bg-warning"
+            }
+
+            //disable atk btn 2sec(antispam)
+            let btnContainer = document.querySelector("#attaque");
+            btnContainer.style.pointerEvents="none";
+            setTimeout(() => {
+                btnContainer.style.pointerEvents="auto";
+            }, 2000);
+            
+        }
+
         //enemy pokemon atk if alive
         if (enemyPokemon.hp > 0) {
             setTimeout(() => {
+
+                //atk animation
                 enemyPokemonImgMove.classList.remove('animationEnemy'); // reset animation
                 void enemyPokemonImgMove.offsetWidth; // trigger reflow
-                enemyPokemonImgMove.className="animationEnemy";// start animation
+                enemyPokemonImgMove.className="animationEnemy"; // start animation
 
-                atkFlash.classList.remove("atkFlash");
+                //red flash animation
+                atkFlash.classList.remove("atkFlash"); 
                 void atkFlash.offsetWidth;
                 setTimeout(() => {
                     atkFlash.className="atkFlash"
                 }, 500);
-                
+
+                //hp change
                 playerPokemon.hp -= enemyPokemon.pa;
                 infoSquare[1].textContent = `${playerPokemon.hp}HP`;
+
+                //bar hp change
+                let playerHpBar = document.querySelector("#joueurPvBar");
+                playerHpBar.style=`width: ${(Math.round(playerPokemon.hp/(playerHpMax/100)))}%`;
+                //color
+                if(playerHpBar.style.width.slice(0, -1) < 25) {
+                    playerHpBar.className="progress-bar bg-danger"
+                } else if (playerHpBar.style.width.slice(0, -1) < 50) {
+                    playerHpBar.className="progress-bar bg-warning"
+                }
             }, 1500);
         }
-        console.log(enemyPokemon.hp);
     })
 }
-
-// do {
-
-//     if ( playerPokemon.hp > 0) {
-        
-//     }
-
-// } while (enemyPokemon.hp > 0 || playerPokemon.hp > 0);

@@ -22,35 +22,13 @@ main {
 
 #visuel {
     position: relative;
-
-    //enemy life bar
-    #adversairePvBar {
+    
+    //life bars
+    .progress {
         position: absolute;
-        width: 100%;
-        height: 20px;
         bottom: 0;
-        appearance: none;
-        border-radius: 0 0 8px 8px;
-        
-    }
-
-    #adversairePvBar::-moz-progress-bar {
-        background-color: #039603 !important;
-    }
-
-    //player life bar
-    #joueurPvBar {
-        position: absolute;
+        height: 10px;
         width: 100%;
-        height: 20px;
-        bottom: 0;
-        appearance: none;
-        border-radius: 0 0 8px 8px;
-        
-    }
-
-    #joueurPvBar::-moz-progress-bar {
-        background-color: #039603 !important;
     }
 }
 
@@ -58,6 +36,9 @@ main {
     position: absolute;
     top: 65%;
     left: 35%;
+    img{
+        color: red;
+    }
 }
 
 #joueurPv {
@@ -202,7 +183,7 @@ main {
 #combat {
     height: 160px;
     width: 100%;
-    
+    background: #000;
     display: grid;
     grid-template-columns: repeat(2, 1fr);
     grid-template-rows: 1fr;
